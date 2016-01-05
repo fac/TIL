@@ -2,7 +2,7 @@
 
 ## Background
 
-We have an API controller actiont that creates a record & returns the ID of it. It takes in an array of ids and a hash of attributes to update each item with. An example JSON request is:
+We have an API controller action that creates a record & returns the ID of it. It takes in an array of ids and a hash of attributes to update each item with. An example JSON request is:
 
 ```json
 {
