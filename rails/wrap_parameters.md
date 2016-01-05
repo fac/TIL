@@ -77,16 +77,16 @@ And hey presto, all three payloads we want to support Just Work™.
 
 ```json
 {
-  "items": […],
-  "updated_attributes": {…}
+  "items": [],
+  "updated_attributes": {}
 }
 ```
 
 ```json
 {
   "recipe_update": {
-    "items": […],
-    "updated_attributes": {…}
+    "items": [],
+    "updated_attributes": {}
   }
 }
 ```
