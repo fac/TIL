@@ -2,7 +2,7 @@
 
 ## Background
 
-We have an API controller actiont that creates a record & returns the ID of it. It takes in an array of ids and a hash of attributes to update each item with. An example JSON request is:
+We have an API controller action that creates a record & returns the ID of it. It takes in an array of ids and a hash of attributes to update each item with. An example JSON request is:
 
 ```json
 {
@@ -22,7 +22,7 @@ We end up with a controller action something like:
 ```ruby
 class RecipeUpdatesController < ApiController
   def create
-    recipe_ids = params.require(:items).map {|d| d["recipe_id"] }
+    recipe_ids = params.require(:items).map { |d| d["recipe_id"] }
     updated_attributes = params.require(:updated_attributes)
 
     @operation = UpdateRecipies.create!(ids: recipe_ids, attrs: updated_attributes)
@@ -54,7 +54,7 @@ The answer is easy, lets just wrap our payload in a single root element, `<recip
 
 This is all well and good, except that we've got API clients deployed which currently call this endpoint without the root element. Rather than break the endpoint for them, or have to coordinate deploys it would be nice to support both nested & non-nested request bodies for now. Doing that will complicate our controller code somewhat though, as we'll have to check for & strip or create the root element before trying to use our `params` object.
 
-Except, this is rails! There's a handy helper in the framework for us! Booya! [ParamsWrapper](http://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html) to the rescue. All we need to do is tell it that we expect json & xml requests to the controller to be wrapped in a root element it handles making our `params` consistent before it reaches the controller action.
+Except, this is Rails! There's a handy helper in the framework for us! Booya! [ParamsWrapper](http://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html) to the rescue. All we need to do is tell it that we expect json & xml requests to the controller to be wrapped in a root element it handles making our `params` consistent before it reaches the controller action.
 
 Now our controller looks like
 
