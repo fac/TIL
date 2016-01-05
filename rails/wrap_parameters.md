@@ -22,7 +22,7 @@ We end up with a controller action something like:
 ```ruby
 class RecipeUpdatesController < ApiController
   def create
-    recipe_ids = params.require(:recipe_ids).map {|d| d["recipe_id"] }
+    recipe_ids = params.require(:items).map {|d| d["recipe_id"] }
     updated_attributes = params.require(:updated_attributes)
 
     @operation = UpdateRecipies.create!(ids: recipe_ids, attrs: updated_attributes)
