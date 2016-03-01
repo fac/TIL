@@ -85,9 +85,21 @@ date.next_month.beginning_of_month
 
 ### Date manipulation
 
+Adds 30 seconds
+```ruby
+Time.now + 30.seconds
+=> 2016-02-09 10:01:57 +0000
+```
+
 Adds 1 day
 ```ruby
-date + 1
+date + 1.day
+=> Wed, 10 Feb 2016
+```
+
+Adds 1 day from a parameterised date
+```ruby
+1.day.since(date = Date.today)
 => Wed, 10 Feb 2016
 ```
 
@@ -103,15 +115,27 @@ date + 1.year
 => Thu, 09 Feb 2017
 ```
 
+Subtracts 30 minutes
+```ruby
+Time.now - 30.minutes
+=> 2016-02-09 09:31:13 +0000
+```
+
 Subtracts 1 day
 ```ruby
 date - 1
 => Mon, 08 Feb 2016
 ```
 
-Subtracts 1 monht
+Subtracts 1 month
 ```ruby
 date - 1.month
+=> Sat, 09 Jan 2016
+```
+
+Subtracts 1 month from a parameterised date
+```ruby
+1.month.ago(date = Date.today)
 => Sat, 09 Jan 2016
 ```
 
