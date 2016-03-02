@@ -186,3 +186,25 @@ Future?
 Date.new(2016, 2, 10).future?
 => true
 ```
+
+
+### Time in words
+
+Using `ActionView::Helpers::DateHelper`:
+
+```ruby
+today_midday_time = Time.new(2016, 2, 9,  12,  0,  0)
+today_tea_time    = Time.new(2016, 2, 9,  17,  0,  0)
+```
+
+Approximate distance in time between two times in words
+```ruby
+helper.distance_of_time_in_words(today_midday_time, today_tea_time)
+=> "about 5 hours"
+```
+
+Approximate distance in time between `Time.now` and a parameterised time
+```ruby
+helper.time_ago_in_words(today_tea_time)
+=> "about 7 hours"
+```
