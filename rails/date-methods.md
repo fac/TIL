@@ -97,9 +97,9 @@ date + 1.day
 => Wed, 10 Feb 2016
 ```
 
-Adds 1 day from a parameterised date
+Adds 1 day from a parameterised date (or uses the current date if no parameter is provided)
 ```ruby
-1.day.since(date = Date.today)
+1.day.since(Date.today)
 => Wed, 10 Feb 2016
 ```
 
@@ -123,7 +123,7 @@ Time.now - 30.minutes
 
 Subtracts 1 day
 ```ruby
-date - 1
+date - 1.day
 => Mon, 08 Feb 2016
 ```
 
@@ -133,9 +133,9 @@ date - 1.month
 => Sat, 09 Jan 2016
 ```
 
-Subtracts 1 month from a parameterised date
+Subtracts 1 month from a parameterised date (or uses the current date if no parameter is provided)
 ```ruby
-1.month.ago(date = Date.today)
+1.month.ago(Date.today)
 => Sat, 09 Jan 2016
 ```
 
