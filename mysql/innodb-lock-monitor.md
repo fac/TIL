@@ -1,6 +1,6 @@
 # InnoDB Lock Monitor
 
-The output of `SHOW ENGINE INNODB STATUS \G` is useful but doesn't always cut it when you dealing with gnarly deadlock issues for instance.
+The output of `SHOW ENGINE INNODB STATUS \G` is useful but doesn't always cut it when you're dealing with gnarly deadlock issues for instance.
 
 ## Big hairy warning
 
