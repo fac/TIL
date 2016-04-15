@@ -8,7 +8,7 @@ Friends, I have good news.
 
 ## Good news
 
-- Launch System Preferences
+- Launch System Preferences, go to Keyboard
 - Select the Shortcuts tab
 - Select App Shortcuts from the sidebar
 - Click the + button to add a new shortcut
