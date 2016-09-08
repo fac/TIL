@@ -6,15 +6,15 @@ Let's say you have an array of hashes, like this one:
 data = [
   {
     :id => 1,
-    :email => 'elliot.alderson@allsafe.com'
+    :email => 'elliot.alderson@example.com'
   },
   {
     :id => 2,
-    :email => 'elliot.alderson@allsafe.com'
+    :email => 'elliot.alderson@example.com'
   },
   {
     :id => 3,
-    :email_address => 'elliot.alderson@allsafe.com'
+    :email_address => 'elliot.alderson@example.com'
   }
 ]
 ```
@@ -23,12 +23,12 @@ If you want to extract the unique email addresses you can't call `data.uniq` bec
 
 ```ruby
 data.uniq {|hash| hash[:email] }
-=> [{:id=>1, :email=>"elliot.alderson@allsafe.com"}, {:id=>3, :email_address=>"elliot.alderson@allsafe.com"}]
+=> [{:id=>1, :email=>"elliot.alderson@example.com"}, {:id=>3, :email_address=>"elliot.alderson@example.com"}]
 ```
 
 If you want to determine uniqueness across multiple fields, you can specify conditions in the block:
 
 ```ruby
 data.uniq {|hash| hash[:email] || hash[:email_address]}
-=> [{:id=>1, :email=>"elliot.alderson@allsafe.com"}]
+=> [{:id=>1, :email=>"elliot.alderson@example.com"}]
 ```
