@@ -14,6 +14,8 @@ To stress more cores in your processor, chain the invocation:
 
 $ yes > /dev/null & yes > /dev/null & yes > /dev/null & ...
 
-Hit Ctrl-C to exist and type:
+Hit Ctrl-C to exit and type:
 
-Type 'killall yes' to destroy the rest.
+'killall yes'
+
+To destroy the rest of the processes.
