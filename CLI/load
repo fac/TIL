@@ -1,0 +1,19 @@
+To stress test cpu utilisation, use the command 'yes' in a terminal window.
+
+$ yes
+
+output:
+
+ y
+ y
+ y
+
+Hit Ctrl-C to stop the program.
+
+To stress more cores in your processor, chain the invocation:
+
+$ yes > /dev/null & yes > /dev/null & yes > /dev/null & ...
+
+Hit Ctrl-C to exist and type:
+
+Type 'killall yes' to destroy the rest.
