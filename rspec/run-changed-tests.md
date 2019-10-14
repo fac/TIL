@@ -1,13 +1,17 @@
 # How to run only tests that have been changed
 
-_This was also delivered as a talk at the Engineering Forum on 10th Oct 2019, the recording should be in Trello._
-
 When you've made changes to some specs that you've been working on, you might only want to run tests that you've fiddled with 
 rather than the whole test suite. Using this snippet allows you to run just the changed specs, regardless of whether they've
 been staged for commit yet:
 
 ```console
 $ git status --porcelain | cut -c "4-" | grep "^spec" | paste -s -d " " - | xargs bundle exec rspec
+```
+
+To ensure just Ruby specs are run through RSpec, use this command:
+
+```console
+$ git status --porcelain | cut -c "4-" | grep "^spec/\w+\.rb$" | paste -s -d " " - | xargs bundle exec rspec
 ```
 
 This one-liner can also be adapted to run Rubocop over changed files as well. Here's an example command:
