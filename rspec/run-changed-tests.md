@@ -1,6 +1,6 @@
 # How to run only tests that have been changed
 
-_Coming soon to an auditorium near you_
+_This was also delivered as a talk at the Engineering Forum on 10th Oct 2019, the recording should be in Trello._
 
 When you've made changes to some specs that you've been working on, you might only want to run tests that you've fiddled with 
 rather than the whole test suite. Using this snippet allows you to run just the changed specs, regardless of whether they've
@@ -9,6 +9,15 @@ been staged for commit yet:
 ```console
 $ git status --porcelain | cut -c "4-" | grep "^spec" | paste -s -d " " - | xargs bundle exec rspec
 ```
+
+This one-liner can also be adapted to run Rubocop over changed files as well. Here's an example command:
+
+```console
+$ git status --porcelain | cut -c "4-" | grep "rb$" | paste -s -d " " - | xargs bundle exec rubocop
+```
+
+In this case, we've changed the grep command to search for lines ending in `rb`, rather than those that begin with `spec` and
+passed it to `bundle exec rubocop`.
 
 ## Breakdown
 
@@ -22,8 +31,8 @@ Here's an example output when running on my dirty worktree:
 
 ```console
 $ git status --porcelain
- M app/jobs/email_marketing/marketing_consent_prospect_update_job.rb
-M  config/environments/development.rb
+ M app/jobs/email_marketing/marketing_consent_prospect_update_job.rb # <- Modified, but unstaged
+M  config/environments/development.rb # <- Modified & staged
 M  config/environments/integration.rb
 M  config/environments/production.rb
 M  config/environments/sandbox.rb
@@ -35,7 +44,7 @@ M  config/environments/test.rb
  M spec/jobs/email_marketing/marketing_consent_prospect_update_job_spec.rb
  M spec/lib/email_marketing/end_users_client_spec.rb
  M spec/requests/signup_conversion_tracking_spec.rb
-?? vim-ruby.log
+?? vim-ruby.log # <- new file, unknown to git
 ```
 
 The lines beginning with `M` at the beginning of the line are files that I've changed and staged for commit. The lines with
