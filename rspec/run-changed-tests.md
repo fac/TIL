@@ -11,7 +11,7 @@ $ git status --porcelain | cut -c "4-" | grep "^spec" | paste -s -d " " - | xarg
 To ensure just Ruby specs are run through RSpec, use this command:
 
 ```console
-$ git status --porcelain | cut -c "4-" | grep "^spec/.+\.rb$" | paste -s -d " " - | xargs bundle exec rspec
+$ git status --porcelain | cut -c "4-" | egrep "^spec/.+\.rb$" | paste -s -d " " - | xargs bundle exec rspec
 ```
 
 This one-liner can also be adapted to run Rubocop over changed files as well. Here's an example command:
