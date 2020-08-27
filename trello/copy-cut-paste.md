@@ -17,4 +17,4 @@ A copy of that card is then added to the end of the list.
 The card will then be removed from it's previous position and added to the end of the current list.
 
 ## Bonus Tip
-Iif you copy a card and then hover over another card and paste it will add a link to the card you’re copying to the card your pasting onto! :tada:
+If you copy a card and then hover over another card and paste it will add a link to the card you’re copying to the card your pasting onto! :tada:
