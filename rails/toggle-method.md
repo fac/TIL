@@ -12,5 +12,5 @@ e.g.
 accountancy_practice_profile.toggle!(:hidden)
 
 # Also without the bang, if you want validations errors rather than exceptions:
-acoountancy_practice_profile.toggle(:hidden)
+accountancy_practice_profile.toggle(:hidden)
 ```
